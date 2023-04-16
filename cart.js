@@ -35,7 +35,11 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((a,c) => {
+    return a + c.price
+}, 0)
+
+// console.log(summedPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -55,7 +59,12 @@ const cart = [
 
 //CODE HERE
 
-
+let calcFinalPrice = (cartTotal, couponValue, tax) => {
+    const taxedCartTotal = cartTotal * (1 + tax)
+    const finalPrice = taxedCartTotal - couponValue
+    return finalPrice
+}
+// console.log(calcFinalPrice(summedPrice, 5, .07))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -80,6 +89,15 @@ const cart = [
 /*
     TEXT ANSWER HERE
 
+    let cusomterObj = {
+        Name: String, A name to add to the order.
+        id: number, a number to quickly grab from the database with,
+        email: the email associated with the account. 
+        total: Number, The total a customer needs to pay to cash out, 
+        Order: {an object}, with item-price key value pairs. 
+        creditCard: Number, the number of the card they want to use to pay. 
+    }
+
 */
 
 /*
@@ -88,3 +106,19 @@ const cart = [
 */
 
 //CODE HERE
+
+let customerObj = {
+    name: 'John Doe',
+    id: 5827203451,
+    email: 'johnDoe@gmail.com',
+    total: 1500,
+    order: {
+        burger: 500,
+        drink: 250,
+        kidsMeal: 500,
+        iceCream: 250
+    },
+    creditCard: 51378887623 // scrambled 
+}
+
+console.log(customerObj)
